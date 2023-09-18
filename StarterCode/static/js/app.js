@@ -7,18 +7,17 @@ function init(){
     //Select menu dropdown with D3
     let menuitems = d3.select("#selDataset")
 
-    //console log json data
+    //extract data and then perform operations
     d3.json(url).then((data) => {
-        console.log(`Data: ${data}`);
 
         //set names variable for sample names
         let names = data.names;
 
         //iterate through all names and add to dropdown menu items
-        names.forEach((i) => {
+        names.forEach((name) => {
             menuitems.append("option")
-            .text(i)
-            .property("value",i);
+            .text(name)
+            .property("value",name);
         });
         
         //set the first name from samples
